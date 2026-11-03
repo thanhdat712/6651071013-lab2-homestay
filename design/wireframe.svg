@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%">
+  <rect width="1200" height="900" fill="#f8fafc" />
+  
+  <!-- Header Wireframe -->
+  <rect x="50" y="30" width="1100" height="60" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+  <rect x="70" y="45" width="30" height="30" rx="6" fill="#059669" />
+  <text x="110" y="65" font-family="sans-serif" font-size="18" font-weight="bold" fill="#0f172a">EmeraldStay (MSSV: 6651071013)</text>
+  <rect x="800" y="47" width="140" height="26" rx="6" fill="#ecfdf5" stroke="#a7f3d0" />
+  <text x="820" y="64" font-family="sans-serif" font-size="12" fill="#047857">Khám phá &amp; Đặt phòng</text>
+  <rect x="960" y="47" width="110" height="26" rx="6" fill="#f1f5f9" />
+  <text x="980" y="64" font-family="sans-serif" font-size="12" fill="#334155">Biểu đồ thống kê</text>
+
+  <!-- Hero Section -->
+  <rect x="50" y="110" width="1100" height="140" rx="12" fill="#064e3b" />
+  <text x="90" y="150" font-family="sans-serif" font-size="14" fill="#a7f3d0" font-weight="bold">ĐỀ TÀI D=0: ĐẶT PHÒNG KHÁCH SẠN / HOMESTAY • MÀU CHỦ ĐẠO C=1: EMERALD (#059669)</text>
+  <text x="90" y="190" font-family="sans-serif" font-size="28" fill="#ffffff" font-weight="bold">Khám phá kỳ nghỉ mơ ước tại Việt Nam</text>
+  <text x="90" y="220" font-family="sans-serif" font-size="14" fill="#d1fae5">Tối thiểu 20 mục dữ liệu • 3 tính năng bắt buộc: Biểu đồ Chart.js, Lọc khoảng giá/ngày, Animation</text>
+
+  <!-- Filter Bar -->
+  <rect x="50" y="270" width="1100" height="110" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="2" />
+  <rect x="70" y="295" width="240" height="38" rx="6" fill="#f8fafc" stroke="#cbd5e1" />
+  <text x="85" y="319" font-family="sans-serif" font-size="12" fill="#64748b">🔍 Tìm kiếm (Debounce 300ms)...</text>
+  <rect x="330" y="295" width="180" height="38" rx="6" fill="#f8fafc" stroke="#cbd5e1" />
+  <text x="345" y="319" font-family="sans-serif" font-size="12" fill="#64748b">📍 Tỉnh thành: Tất cả ▼</text>
+  <rect x="530" y="295" width="180" height="38" rx="6" fill="#f8fafc" stroke="#cbd5e1" />
+  <text x="545" y="319" font-family="sans-serif" font-size="12" fill="#64748b">📅 Ngày nhận phòng</text>
+  <rect x="730" y="295" width="180" height="38" rx="6" fill="#f8fafc" stroke="#cbd5e1" />
+  <text x="745" y="319" font-family="sans-serif" font-size="12" fill="#64748b">📅 Ngày trả phòng</text>
+  <rect x="930" y="295" width="190" height="38" rx="6" fill="#059669" />
+  <text x="955" y="319" font-family="sans-serif" font-size="12" fill="#ffffff" font-weight="bold">Lọc khoảng giá &amp; Sắp xếp</text>
+
+  <!-- Category Pills -->
+  <rect x="70" y="348" width="60" height="22" rx="11" fill="#059669" />
+  <text x="82" y="363" font-family="sans-serif" font-size="10" fill="#ffffff">Tất cả</text>
+  <rect x="140" y="348" width="80" height="22" rx="11" fill="#f1f5f9" />
+  <text x="155" y="363" font-family="sans-serif" font-size="10" fill="#475569">Khách sạn</text>
+  <rect x="230" y="348" width="80" height="22" rx="11" fill="#f1f5f9" />
+  <text x="245" y="363" font-family="sans-serif" font-size="10" fill="#475569">Homestay</text>
+  <rect x="320" y="348" width="70" height="22" rx="11" fill="#f1f5f9" />
+  <text x="335" y="363" font-family="sans-serif" font-size="10" fill="#475569">Resort</text>
+  <rect x="400" y="348" width="60" height="22" rx="11" fill="#f1f5f9" />
+  <text x="415" y="363" font-family="sans-serif" font-size="10" fill="#475569">Villa</text>
+
+  <!-- Hotel Grid Responsive Wireframe (4 cols on Desktop) -->
+  <!-- Card 1 -->
+  <rect x="50" y="400" width="255" height="340" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="50" y="400" width="255" height="150" rx="12" fill="#e2e8f0" />
+  <text x="120" y="480" font-family="sans-serif" font-size="14" fill="#94a3b8">[Hình ảnh alt thật]</text>
+  <rect x="65" y="415" width="70" height="20" rx="10" fill="#059669" />
+  <text x="75" y="429" font-family="sans-serif" font-size="10" fill="#ffffff">Khách sạn</text>
+  <text x="65" y="575" font-family="sans-serif" font-size="11" fill="#059669" font-weight="bold">Sa Pa • Trung tâm</text>
+  <text x="65" y="595" font-family="sans-serif" font-size="14" fill="#0f172a" font-weight="bold">Sapa Horizon Grand Hotel</text>
+  <text x="65" y="630" font-family="sans-serif" font-size="11" fill="#64748b">Tối đa 3 khách • 1 PN</text>
+  <line x1="65" y1="650" x2="290" y2="650" stroke="#f1f5f9" stroke-width="1" />
+  <text x="65" y="685" font-family="sans-serif" font-size="16" fill="#047857" font-weight="bold">1.450.000 ₫</text>
+  <rect x="200" y="665" width="90" height="30" rx="8" fill="#ecfdf5" stroke="#a7f3d0" />
+  <text x="220" y="684" font-family="sans-serif" font-size="11" fill="#047857" font-weight="bold">Chi tiết →</text>
+
+  <!-- Card 2 -->
+  <rect x="330" y="400" width="255" height="340" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="330" y="400" width="255" height="150" rx="12" fill="#e2e8f0" />
+  <text x="400" y="480" font-family="sans-serif" font-size="14" fill="#94a3b8">[Hình ảnh alt thật]</text>
+  <rect x="345" y="415" width="70" height="20" rx="10" fill="#059669" />
+  <text x="355" y="429" font-family="sans-serif" font-size="10" fill="#ffffff">Homestay</text>
+  <text x="345" y="575" font-family="sans-serif" font-size="11" fill="#059669" font-weight="bold">Hội An • Bãi biển An Bàng</text>
+  <text x="345" y="595" font-family="sans-serif" font-size="14" fill="#0f172a" font-weight="bold">An Bàng Beachfront Sanctuary</text>
+  <text x="345" y="630" font-family="sans-serif" font-size="11" fill="#64748b">Tối đa 4 khách • 2 PN</text>
+  <line x1="345" y1="650" x2="570" y2="650" stroke="#f1f5f9" stroke-width="1" />
+  <text x="345" y="685" font-family="sans-serif" font-size="16" fill="#047857" font-weight="bold">850.000 ₫</text>
+  <rect x="480" y="665" width="90" height="30" rx="8" fill="#ecfdf5" stroke="#a7f3d0" />
+  <text x="500" y="684" font-family="sans-serif" font-size="11" fill="#047857" font-weight="bold">Chi tiết →</text>
+
+  <!-- Card 3 -->
+  <rect x="610" y="400" width="255" height="340" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="610" y="400" width="255" height="150" rx="12" fill="#e2e8f0" />
+  <text x="680" y="480" font-family="sans-serif" font-size="14" fill="#94a3b8">[Hình ảnh alt thật]</text>
+  <rect x="625" y="415" width="60" height="20" rx="10" fill="#059669" />
+  <text x="640" y="429" font-family="sans-serif" font-size="10" fill="#ffffff">Villa</text>
+  <text x="625" y="575" font-family="sans-serif" font-size="11" fill="#059669" font-weight="bold">Đà Lạt • Triệu Việt Vương</text>
+  <text x="625" y="595" font-family="sans-serif" font-size="14" fill="#0f172a" font-weight="bold">Đà Lạt Pine Hill Valley Villa</text>
+  <text x="625" y="630" font-family="sans-serif" font-size="11" fill="#64748b">Tối đa 8 khách • 3 PN</text>
+  <line x1="625" y1="650" x2="850" y2="650" stroke="#f1f5f9" stroke-width="1" />
+  <text x="625" y="685" font-family="sans-serif" font-size="16" fill="#047857" font-weight="bold">2.200.000 ₫</text>
+  <rect x="760" y="665" width="90" height="30" rx="8" fill="#ecfdf5" stroke="#a7f3d0" />
+  <text x="780" y="684" font-family="sans-serif" font-size="11" fill="#047857" font-weight="bold">Chi tiết →</text>
+
+  <!-- Card 4 -->
+  <rect x="890" y="400" width="255" height="340" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+  <rect x="890" y="400" width="255" height="150" rx="12" fill="#e2e8f0" />
+  <text x="960" y="480" font-family="sans-serif" font-size="14" fill="#94a3b8">[Hình ảnh alt thật]</text>
+  <rect x="905" y="415" width="60" height="20" rx="10" fill="#059669" />
+  <text x="920" y="429" font-family="sans-serif" font-size="10" fill="#ffffff">Resort</text>
+  <text x="905" y="575" font-family="sans-serif" font-size="11" fill="#059669" font-weight="bold">Phú Quốc • Bãi Khem</text>
+  <text x="905" y="595" font-family="sans-serif" font-size="14" fill="#0f172a" font-weight="bold">Phú Quốc Emerald Pearl</text>
+  <text x="905" y="630" font-family="sans-serif" font-size="11" fill="#64748b">Tối đa 2 khách • 1 PN</text>
+  <line x1="905" y1="650" x2="1130" y2="650" stroke="#f1f5f9" stroke-width="1" />
+  <text x="905" y="685" font-family="sans-serif" font-size="16" fill="#047857" font-weight="bold">3.400.000 ₫</text>
+  <rect x="1040" y="665" width="90" height="30" rx="8" fill="#ecfdf5" stroke="#a7f3d0" />
+  <text x="1060" y="684" font-family="sans-serif" font-size="11" fill="#047857" font-weight="bold">Chi tiết →</text>
+
+  <!-- Footer Wireframe -->
+  <rect x="50" y="780" width="1100" height="90" rx="10" fill="#0f172a" />
+  <text x="90" y="820" font-family="sans-serif" font-size="14" fill="#ffffff" font-weight="bold">EmeraldStay — MSSV: 6651071013</text>
+  <text x="90" y="845" font-family="sans-serif" font-size="12" fill="#94a3b8">Thiết kế Web Thực hành Lab 2 • Responsive 3 Breakpoints (&lt;640px, 640-1024px, &gt;1024px)</text>
+  <text x="950" y="830" font-family="sans-serif" font-size="12" fill="#10b981">React 18 + Vite + Tailwind</text>
+</svg>
