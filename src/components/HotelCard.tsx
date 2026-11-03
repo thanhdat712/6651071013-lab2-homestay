@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin, Star, Users, Bed, ArrowRight, ShieldCheck } from 'lucide-react';
-import type { HotelItem } from '../types';
 import { formatCurrency, truncateText } from '../utils';
+import type { HotelItem } from '../utils';
 
 interface HotelCardProps {
   hotel: HotelItem;

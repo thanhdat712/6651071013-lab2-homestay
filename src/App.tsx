@@ -3,7 +3,6 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { ListPage } from './pages/ListPage';
 import { DetailPage } from './pages/DetailPage';
-import { StatsPage } from './pages/StatsPage';
 import { PageTransition } from './components/PageTransition';
 
 function App() {
@@ -16,7 +15,6 @@ function App() {
             <Routes>
               <Route path="/" element={<ListPage />} />
               <Route path="/item/:id" element={<DetailPage />} />
-              <Route path="/stats" element={<StatsPage />} />
               <Route path="*" element={<ListPage />} />
             </Routes>
           </PageTransition>

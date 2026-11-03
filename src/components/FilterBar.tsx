@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, Calendar, DollarSign, SlidersHorizontal, RotateCcw, Building2 } from 'lucide-react';
-import type { FilterState } from '../types';
 import { debounce, formatCurrency } from '../utils';
+import type { FilterState } from '../utils';
 
 interface FilterBarProps {
   filters: FilterState;

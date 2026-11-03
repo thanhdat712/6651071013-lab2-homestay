@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, CheckCircle, Calendar, User, Mail, Phone, Clock } from 'lucide-react';
-import type { HotelItem, BookingFormData } from '../types';
 import { formatCurrency, validateEmail } from '../utils';
+import type { HotelItem, BookingFormData } from '../utils';
 
 interface BookingModalProps {
   hotel: HotelItem;

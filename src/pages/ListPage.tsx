@@ -1,13 +1,33 @@
 import React, { useState, useMemo } from 'react';
-import type { HotelItem, FilterState } from '../types';
 import hotelsData from '../data/data.json';
 import { HotelCard } from '../components/HotelCard';
 import { FilterBar } from '../components/FilterBar';
-import { Link } from 'react-router-dom';
-import { Sparkles, MapPin, Compass, BarChart3, CheckCircle2 } from 'lucide-react';
+import { StatsChart } from '../components/StatsChart';
+import type { HotelItem, FilterState } from '../utils';
+import { useSearchParams } from 'react-router-dom';
+import {
+  Sparkles,
+  MapPin,
+  Compass,
+  BarChart3,
+  CheckCircle2,
+  LayoutGrid,
+} from 'lucide-react';
 
 export const ListPage: React.FC = () => {
   const allHotels: HotelItem[] = hotelsData as HotelItem[];
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Pure derived state from URL: 'list' (Rooms & Filters) or 'stats' (Market Chart & Analytics)
+  const activeTab = searchParams.get('tab') === 'stats' ? 'stats' : 'list';
+
+  const handleTabChange = (tab: 'list' | 'stats') => {
+    if (tab === 'stats') {
+      setSearchParams({ tab: 'stats' });
+    } else {
+      setSearchParams({});
+    }
+  };
 
   const [filters, setFilters] = useState<FilterState>({
     searchTerm: '',
@@ -108,74 +128,122 @@ export const ListPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Quick navigation anchor / stats pill */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-        <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <Compass className="w-6 h-6 text-emerald-600" aria-hidden="true" />
-            <span>Danh sách Khách sạn & Homestay</span>
-          </h2>
-          <p className="text-xs text-slate-600 mt-1">
-            Hiển thị <strong className="text-emerald-700">{filteredHotels.length}</strong> / {allHotels.length} kết quả phù hợp
-          </p>
-        </div>
-
-        <Link
-          to="/stats"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold text-emerald-800 bg-emerald-100/80 hover:bg-emerald-200 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
-        >
-          <BarChart3 className="w-4 h-4 text-emerald-700" aria-hidden="true" />
-          <span>Xem biểu đồ phân tích thị trường</span>
-        </Link>
-      </div>
-
-      {/* Filter Component (Tính năng 2: Lọc khoảng giá / ngày + Debounce) */}
-      <FilterBar
-        filters={filters}
-        onFilterChange={setFilters}
-        availableCities={availableCities}
-        totalResults={filteredHotels.length}
-      />
-
-      {/* Hotel Cards Grid - Strict 3 Breakpoints */}
-      {filteredHotels.length > 0 ? (
-        <section
-          aria-label="Danh sách kết quả tìm kiếm khách sạn"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-        >
-          {filteredHotels.map((hotel) => (
-            <HotelCard key={hotel.id} hotel={hotel} />
-          ))}
-        </section>
-      ) : (
-        <div className="text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 p-8">
-          <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">
-            <MapPin className="w-8 h-8" aria-hidden="true" />
-          </div>
-          <h3 className="text-lg font-bold text-slate-900 mb-2">Không tìm thấy địa điểm phù hợp</h3>
-          <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
-            Rất tiếc không có khách sạn hoặc homestay nào phù hợp với bộ lọc hiện tại của bạn. Hãy thử thay đổi khoảng giá, ngày lưu trú hoặc từ khóa tìm kiếm.
-          </p>
+      {/* Main Tabs Navigation */}
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <div className="flex items-center p-1.5 bg-slate-200/80 rounded-2xl border border-slate-300/60 shadow-inner">
           <button
             type="button"
-            onClick={() =>
-              setFilters({
-                searchTerm: '',
-                category: 'Tất cả',
-                city: 'Tất cả',
-                minPrice: 400000,
-                maxPrice: 4000000,
-                checkInDate: '',
-                checkOutDate: '',
-                guests: 1,
-                sortBy: 'rating-desc',
-              })
-            }
-            className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-colors shadow-sm"
+            onClick={() => handleTabChange('list')}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              activeTab === 'list'
+                ? 'bg-white text-emerald-800 shadow-md shadow-slate-300'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
           >
-            Xóa bộ lọc
+            <LayoutGrid className="w-4 h-4" aria-hidden="true" />
+            <span>Khám phá & Bộ lọc</span>
+            <span className="ml-1 text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-bold">
+              {filteredHotels.length}
+            </span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => handleTabChange('stats')}
+            className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              activeTab === 'stats'
+                ? 'bg-white text-emerald-800 shadow-md shadow-slate-300'
+                : 'text-slate-600 hover:text-slate-900'
+            }`}
+          >
+            <BarChart3 className="w-4 h-4" aria-hidden="true" />
+            <span>Biểu đồ thị trường (Chart.js)</span>
           </button>
         </div>
+
+        <div className="text-xs text-slate-500 font-medium hidden sm:block">
+          Hiển thị theo chuẩn kiến trúc: <strong>1 Route / 1 Page File</strong>
+        </div>
+      </div>
+
+      {/* TAB 1: ROOM LIST & FILTERS */}
+      {activeTab === 'list' && (
+        <section aria-label="Khu vực tìm kiếm và danh sách phòng">
+          <div className="mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+              <Compass className="w-6 h-6 text-emerald-600" aria-hidden="true" />
+              <span>Danh sách Khách sạn & Homestay</span>
+            </h2>
+            <p className="text-xs text-slate-600 mt-1">
+              Hiển thị <strong className="text-emerald-700">{filteredHotels.length}</strong> / {allHotels.length} kết quả phù hợp
+            </p>
+          </div>
+
+          {/* Filter Component (Tính năng 2: Lọc khoảng giá / ngày + Debounce) */}
+          <FilterBar
+            filters={filters}
+            onFilterChange={setFilters}
+            availableCities={availableCities}
+            totalResults={filteredHotels.length}
+          />
+
+          {/* Hotel Cards Grid - Strict 3 Breakpoints */}
+          {filteredHotels.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {filteredHotels.map((hotel) => (
+                <HotelCard key={hotel.id} hotel={hotel} />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 p-8">
+              <div className="w-16 h-16 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+                <MapPin className="w-8 h-8" aria-hidden="true" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 mb-2">Không tìm thấy địa điểm phù hợp</h3>
+              <p className="text-sm text-slate-600 max-w-md mx-auto mb-6">
+                Rất tiếc không có khách sạn hoặc homestay nào phù hợp với bộ lọc hiện tại của bạn. Hãy thử thay đổi khoảng giá, ngày lưu trú hoặc từ khóa tìm kiếm.
+              </p>
+              <button
+                type="button"
+                onClick={() =>
+                  setFilters({
+                    searchTerm: '',
+                    category: 'Tất cả',
+                    city: 'Tất cả',
+                    minPrice: 400000,
+                    maxPrice: 4000000,
+                    checkInDate: '',
+                    checkOutDate: '',
+                    guests: 1,
+                    sortBy: 'rating-desc',
+                  })
+                }
+                className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm transition-colors shadow-sm"
+              >
+                Xóa bộ lọc
+              </button>
+            </div>
+          )}
+        </section>
+      )}
+
+      {/* TAB 2: MARKET STATS (CHART.JS) */}
+      {activeTab === 'stats' && (
+        <section aria-label="Báo cáo thống kê thị trường">
+          <div className="mb-6">
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight flex items-center gap-3">
+              <div className="w-9 h-9 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
+                <BarChart3 className="w-5 h-5" aria-hidden="true" />
+              </div>
+              <span>Phân tích dữ liệu lưu trú & Giá phòng</span>
+            </h2>
+            <p className="text-sm text-slate-600 mt-2 max-w-3xl leading-relaxed">
+              Tổng hợp trực quan hóa bằng thư viện Chart.js về chi phí lưu trú trung bình giữa các vùng miền, cơ cấu phân bổ các loại hình du lịch và phân khúc ngân sách của 22 khách sạn & homestay thực tế.
+            </p>
+          </div>
+
+          <StatsChart hotels={allHotels} />
+        </section>
       )}
     </div>
   );

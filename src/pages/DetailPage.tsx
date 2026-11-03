@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
-import type { HotelItem } from '../types';
 import hotelsData from '../data/data.json';
 import { BookingModal } from '../components/BookingModal';
 import { HotelCard } from '../components/HotelCard';
 import { formatCurrency } from '../utils';
+import type { HotelItem } from '../utils';
 import {
   ArrowLeft,
   MapPin,

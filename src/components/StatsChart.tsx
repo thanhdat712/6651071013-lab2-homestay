@@ -12,8 +12,8 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar, Doughnut, Line } from 'react-chartjs-2';
-import type { HotelItem } from '../types';
 import { formatCurrency } from '../utils';
+import type { HotelItem } from '../utils';
 import { TrendingUp, PieChart as PieIcon, DollarSign, Award } from 'lucide-react';
 
 ChartJS.register(

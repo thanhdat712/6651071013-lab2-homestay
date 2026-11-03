@@ -6,9 +6,8 @@ export const Header: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
+  const isHomeActive = location.pathname === '/' && !location.search.includes('tab=stats');
+  const isStatsActive = location.pathname === '/' && location.search.includes('tab=stats');
 
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-emerald-100 shadow-sm">
@@ -37,7 +36,7 @@ export const Header: React.FC = () => {
             <Link
               to="/"
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                isActive('/')
+                isHomeActive
                   ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm'
                   : 'text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60'
               }`}
@@ -47,9 +46,9 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link
-              to="/stats"
+              to="/?tab=stats"
               className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                isActive('/stats')
+                isStatsActive
                   ? 'bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm'
                   : 'text-slate-700 hover:text-emerald-700 hover:bg-emerald-50/60'
               }`}
@@ -92,7 +91,7 @@ export const Header: React.FC = () => {
               to="/"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-base font-medium ${
-                isActive('/')
+                isHomeActive
                   ? 'bg-emerald-50 text-emerald-700 font-semibold'
                   : 'text-slate-700 hover:bg-slate-50'
               }`}
@@ -102,10 +101,10 @@ export const Header: React.FC = () => {
             </Link>
 
             <Link
-              to="/stats"
+              to="/?tab=stats"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-base font-medium ${
-                isActive('/stats')
+                isStatsActive
                   ? 'bg-emerald-50 text-emerald-700 font-semibold'
                   : 'text-slate-700 hover:bg-slate-50'
               }`}
